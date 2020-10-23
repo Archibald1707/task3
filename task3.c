@@ -173,8 +173,10 @@ void memoryFree(listOfString **head)
     {
         previous = (*head);
         (*head) = (*head)->next;
+        free(previous->str);
         free(previous);
     }
+    free((*head)->str);
     free(*head);
     return;
 }
